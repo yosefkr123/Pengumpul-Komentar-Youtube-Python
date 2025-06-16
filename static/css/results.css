@@ -1,0 +1,258 @@
+:root {
+    --primary: #FF0000;
+    --primary-light: #FF6B6B;
+    --primary-dark: #CC0000;
+    --secondary: #8BC34A;
+    --accent: #CDDC39;
+    --light: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --medium-gray: #E0E0E0;
+    --dark-gray: #616161;
+    --text: #212121;
+    --success: #2E7D32;
+    --info: #0288D1;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F1F8E9;
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+}
+
+.results-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: var(--light);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.video-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #FF0000;
+}
+
+.video-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.video-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.comments-section {
+    margin-bottom: 30px;
+}
+
+.comments-section h3 {
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-container {
+    border: 1px solid var(--medium-gray);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table.dataTable {
+    width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
+}
+
+table.dataTable thead th {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    padding: 12px 15px;
+    border: none;
+}
+
+table.dataTable tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--medium-gray);
+    vertical-align: middle;
+}
+
+table.dataTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table.dataTable tbody tr:hover td {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.author {
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+.time {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+.download-section {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid var(--medium-gray);
+}
+
+.download-section h3 {
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.download-btn.csv {
+    background-color: var(--success);
+    color: white;
+}
+
+.download-btn.excel {
+    background-color: var(--info);
+    color: white;
+}
+
+.download-btn.back {
+    background-color: transparent;
+    color: var(--text);
+    border: 1px solid var(--medium-gray);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn.back:hover {
+    background-color: var(--light-gray);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-left: 2px;
+    border: 1px solid transparent;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: var(--light-gray) !important;
+    border: 1px solid var(--medium-gray);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: var(--primary) !important;
+    color: white !important;
+    border: 1px solid var(--primary);
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .results-container {
+        padding: 20px;
+    }
+    
+    .video-info {
+        flex-direction: column;
+    }
+    
+    .info-item {
+        min-width: 100%;
+    }
+    
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .download-btn {
+        width: 100%;
+    }
+}

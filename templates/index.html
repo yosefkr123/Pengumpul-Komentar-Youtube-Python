@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Comment Extractor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h1>YouTube Comment Extractor</h1>
+            </div>
+            <p class="subtitle">Extract and analyze comments from any YouTube video with ease</p>
+        </div>
+        
+        <form method="POST" id="commentForm">
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="video_url"><i class="fas fa-link"></i> YouTube Video URL</label>
+                    <input type="text" name="video_url" placeholder="https://www.youtube.com/watch?v=..." required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="comment_count"><i class="fas fa-comments"></i> Number of Comments (0 for all)</label>
+                    <input type="number" name="comment_count" min="0" value="20">
+                    <small>Enter 0 to extract all available comments (max 10,000)</small>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-cloud-download-alt"></i> Extract Comments
+            </button>
+        </form>
+        
+        {% if error %}
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i> {{ error }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Collecting comments...</p>
+        </div>
+    </div>
+
+    <script src="static/js/loading.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Comments Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="static/css/results.css">
+</head>
+<body>
+    <div class="results-container">
+        <div class="video-header">
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h2>YouTube Comments Results</h2>
+            </div>
+            <div class="video-info">
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-link"></i> Video URL</span>
+                    <a href="{{ video_url }}" target="_blank" class="info-value">{{ video_url|truncate(40) }}</a>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-user"></i> Channel</span>
+                    <span class="info-value">{{ channel_name }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label"><i class="fas fa-comment"></i> Comments</span>
+                    <span class="info-value">{{ comment_count }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-section">
+            <h3><i class="fas fa-comments"></i> Extracted Comments</h3>
+            <div class="table-container">
+                <table id="commentsTable" class="display">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Author</th>
+                            <th>Comment</th>
+                            <th>Time</th>
+                            <th><i class="fas fa-thumbs-up"></i></th>
+                            <th><i class="fas fa-reply"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for comment in comments %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td class="author">{{ comment.author }}</td>
+                            <td>{{ comment.text }}</td>
+                            <td class="time">{{ comment.time }}</td>
+                            <td>{{ comment.likes }}</td>
+                            <td>{{ comment.replies }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h3><i class="fas fa-download"></i> Download Options</h3>
+            <div class="download-buttons">
+                <a href="/download/csv" class="download-btn csv">
+                    <i class="fas fa-file-csv"></i> CSV
+                </a>
+                <a href="/download/xlsx" class="download-btn excel">
+                    <i class="fas fa-file-excel"></i> Excel
+                </a>
+                <a href="/" class="download-btn back">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/results.js"></script>
+</body>
+</html>
